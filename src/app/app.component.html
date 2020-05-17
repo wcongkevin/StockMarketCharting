@@ -1,0 +1,28 @@
+﻿<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/">Home</a>
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    <a class="nav-item nav-link" (click)="ImportData()">Import Data</a>
+    <a class="nav-item nav-link" (click)="CompareCompany()">Compare Company</a>
+    <a class="nav-item nav-link" (click)="ManageCompany()">Manage Company</a>
+    <!-- <a class="nav-item nav-link" (click)="ManageExchange()">Manage Exchange</a> -->
+    <!-- <a class="nav-item nav-link" (click)="UpdataIPODetail()">Update IPO Detail</a> -->
+  </div>
+</nav>
+
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <alert></alert>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <p>
+    <a href="http://localhost:8080/" target="_top">eStock Market Online</a>
+  </p>
+</div>
