@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:       
+    gateway:
+      discovery:
+        locator: 
+          enabled: true
+
+      routes:
+      - id: 163                    
+        uri: http://www.163.com/
+        predicates:
+          - Path=/163/**
+#      - id: DATA-API-SERVICE           
+#        uri: lb://DATA-API-SERVICE
+#        predicates:
+#          - Path=/DATA-API-SERVICE/**
+#       - id: DEVICE-API-SERVICE           
+#         uri: http://localhost:5200/
+#         predicates:
+#           - Path=/DEVICE-API-SERVICE/**
+ 
+server:
+  port: 5001
+ 
+ 
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.http.server.reactive: debug
+    org.springframework.web.reactive: debug
+    reactor.ipc.netty: debug
+ 
+ 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka/
+ 
+feign:
+  hystrix:
+    enabled: true
